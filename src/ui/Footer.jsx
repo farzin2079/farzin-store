@@ -10,6 +10,7 @@ import FooterInformation from "./FooterInformation";
 
 const FooterStyle = styled.footer`
   border-top: 1px solid var(--color-stone-900);
+  margin-top: 40px;
 `;
 
 const TopFooter = styled.div`

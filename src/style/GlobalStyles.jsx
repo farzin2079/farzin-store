@@ -149,6 +149,20 @@ img {
   max-width: 100%;
 }
 
+.card-swiper {
+  padding-bottom: 40px ;
+  margin-top:40px ;
+}
+
+.swiper-slide-shadow {
+  background: none !important;
+}
+
+.card-swiper .swiper-slide  {
+  display: flex;
+  justify-content: center;
+}
+
 `;
 
 export default GlobalStyles;

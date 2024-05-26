@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import Banner from "./Banner";
+import Banner from "../features/banner/Banner";
 
 const StyleApp = styled.div``;
 
@@ -18,7 +18,6 @@ const Main = styled.main`
 export default function Applayout() {
   return (
     <StyleApp>
-    <Banner firstOrder={0} lastOrder={1}/>
       <Header />
       <Main>
         <Outlet />

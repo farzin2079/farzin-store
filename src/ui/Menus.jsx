@@ -51,7 +51,7 @@ const StyledList = styled.ul`
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
-
+  z-index: 1000;
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -112,7 +112,7 @@ function Toggle({ children, toggleId }) {
   }
 
   return (
-    <StyledToggle onMouseEnter={handeler} $isopen={openId === toggleId}>
+    <StyledToggle onClick={handeler} $isopen={openId === toggleId}>
       {children}
       <HiChevronDown />
     </StyledToggle>
