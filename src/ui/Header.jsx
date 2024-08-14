@@ -32,6 +32,14 @@ const NavBar = styled.nav`
   border-bottom: 1px solid var(--color-stone-900);
 `;
 
+const CategoryPlace = styled.div`
+  display: none;
+
+    @media screen and (min-width: 576px) {
+    display: flex;
+  }
+`
+
 export default function Header() {
   return (
     <NavBar>
@@ -43,7 +51,9 @@ export default function Header() {
         </NavGroup>
         <HamMenu />
       </Nav>
-      <CategoryList />
+      <CategoryPlace>
+        <CategoryList isHamMenu={false} />
+      </CategoryPlace>
     </NavBar>
   );
 }

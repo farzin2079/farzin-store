@@ -5,8 +5,10 @@ import Search from "./Search";
 import NavList from "./NavList";
 import styled from "styled-components";
 import { HiBars3, HiMiniXMark } from "react-icons/hi2";
+
 import { useHamContext } from "../context/HamMenuContext";
 import Button from "./Button";
+import CategoryList from "./CategoryList";
 
 const HamList = styled.div`
   display: flex;
@@ -22,6 +24,7 @@ const HamList = styled.div`
   z-index: 1000;
   background-color: #fff;
   padding: 12px 12px;
+  overflow-y: auto;
 `;
 
 const HamBackground = styled.div`
@@ -41,13 +44,19 @@ const HamBackground = styled.div`
 
 const HamButton = styled.button`
   display: none;
-  background-color: transparent;
+  background-color: inherit;
   border: none;
   font-size: 45px;
 
   @media screen and (max-width: 576px) {
     display: block;
   }
+`;
+
+const LogoText = styled.div`
+  border-top: 1px dashed var(--color-stone-600);
+  padding: 8px 24px;
+  margin-top: 40px;
 `;
 
 export default function HamMenu() {
@@ -60,11 +69,14 @@ export default function HamMenu() {
       </HamButton>
       <HamBackground $isopen={isOpen}>
         <HamList>
-          <Button onClick={toggleHam} size="small">
+          <Button onClick={toggleHam} size="small" variation="second">
             <HiMiniXMark />
           </Button>
           <Search />
           <NavList isHamList="true" />
+          <hr width="100%" />
+          <CategoryList isHamMenu="true" />
+          <LogoText className="kanit-regular">Farzin Store</LogoText>
         </HamList>
       </HamBackground>
     </>

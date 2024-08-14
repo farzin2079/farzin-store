@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
+
+
 const GlobalStyles = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poetsen+One&display=swap');
+
 :root{
 ${"" /* background color */}
 --color-slate-0:#f8fafc;
@@ -86,6 +91,30 @@ ${"" /* border radius */}
 --backdrop-color: rgba(0, 0, 0, 0.3);
 }
 
+
+.kanit-light {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kanit-regular {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kanit-medium {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.kanit-semibold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
 
 body{
     background-color: var(--color-slate-100);
