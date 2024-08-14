@@ -18,6 +18,13 @@ const TopFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
+
+  & img {
+    display: none;
+    @media screen and (min-width: 576px) {
+      display: block;
+    }
+  }
 `;
 
 const LeftDiv = styled.div`
