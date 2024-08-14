@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useBanner } from "./useBanner";
 
 import Spinner from "../../ui/Spinner";
+import Container from "../../ui/Container";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
@@ -31,28 +32,30 @@ export default function Banner() {
   if (isLoading) return <Spinner />;
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay, A11y]}
-      spaceBetween={50}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 5000 }}
-      loop={true}
-    >
-      <SwiperPrevButton />
-      {data?.map((banner) => (
-        <SwiperSlide key={banner.id}>
-          <PicturePlace>
-            <img
-              src={banner.image}
-              alt={banner.description}
-              width="100%"
-              height="100%"
-            />
-          </PicturePlace>
-        </SwiperSlide>
-      ))}
-      <SwiperNextButton />
-    </Swiper>
+    <Container>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 5000 }}
+        loop={true}
+      >
+        <SwiperPrevButton />
+        {data?.map((banner) => (
+          <SwiperSlide key={banner.id}>
+            <PicturePlace>
+              <img
+                src={banner.image}
+                alt={banner.description}
+                width="100%"
+                height="100%"
+              />
+            </PicturePlace>
+          </SwiperSlide>
+        ))}
+        <SwiperNextButton />
+      </Swiper>
+    </Container>
   );
 }

@@ -69,6 +69,8 @@ const Price = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--light);
+  display: flex;
+  flex-direction: column;
 `;
 
 const CardButton = styled(Link)`
@@ -93,6 +95,21 @@ const CardButton = styled(Link)`
   box-shadow: inset 0 0 0.25rem 1px var(--light);
 `;
 
+const ReqularPrice = styled.span`
+  text-decoration: line-through;
+  color: red;
+  font-size: 0.8rem;
+`;
+
+const DiscountPrecent = styled.span`
+  background-color: red;
+  color: #eee;
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin-left: 4px;
+  padding-right: 2px;
+`;
+
 export default function ProductCardOnSale({ data }) {
   return (
     <Card>
@@ -103,9 +120,25 @@ export default function ProductCardOnSale({ data }) {
         <span>{data.title}</span>
       </Title>
       <Action>
-        <Price>
-          <span>{formatCurrency(data.regularPrice)}</span>
-        </Price>
+        {data.discountPrecent ? (
+          <Price>
+            <div>
+              <ReqularPrice>{formatCurrency(data.regularPrice)}</ReqularPrice>
+              <DiscountPrecent> {data.discountPrecent}% </DiscountPrecent>
+            </div>
+            <span>
+              {formatCurrency(
+                data.regularPrice -
+                  data.regularPrice * (data.discountPrecent / 100)
+              )}
+            </span>
+          </Price>
+        ) : (
+          <Price>
+            <span>{formatCurrency(data.regularPrice)}</span>
+          </Price>
+        )}
+
         <CardButton to={"#"}>
           <span>See Details</span>
         </CardButton>
