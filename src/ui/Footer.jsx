@@ -63,7 +63,7 @@ export default function Footer() {
           </Button>
           <SocialGroup />
         </LeftDiv>
-        <Img src="logo.png" alt="Farzin store Logo" width="30%" />
+        <Img src="logo.png" alt="Farzin store Logo" width="30%" height="20%" aspect="3/2" />
       </TopFooter>
       <BottomFooter>
         <FooterInformation />

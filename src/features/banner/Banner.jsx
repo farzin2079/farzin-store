@@ -6,6 +6,7 @@ import { useBanner } from "./useBanner";
 
 import Spinner from "../../ui/Spinner";
 import Container from "../../ui/Container";
+import Img from "../../ui/Img";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
@@ -45,8 +46,9 @@ export default function Banner() {
         {data?.map((banner) => (
           <SwiperSlide key={banner.id}>
             <PicturePlace>
-              <img
+              <Img
                 src={banner.image}
+                phoneSrc={banner.phoneImage}
                 alt={banner.description}
                 width="100%"
                 height="100%"
