@@ -18,12 +18,11 @@ export default function SuggestionSwction() {
     <Container>
       <SwiperComponent
         datas={data}
-        slidesPerView={4}
         modules={[Pagination]}
         pagination={{ clickable: true, dynamicBullets: true }}
         loop={true}
       >
-      <Card />
+        <Card />
       </SwiperComponent>
     </Container>
   );
