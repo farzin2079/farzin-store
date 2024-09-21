@@ -18,6 +18,7 @@ const Main = styled.main`
 export default function Applayout() {
   return (
     <StyleApp>
+      <Banner place="1" />
       <Header />
       <Main>
         <Outlet />

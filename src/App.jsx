@@ -13,6 +13,7 @@ import Applayout from "./ui/Applayout";
 import { HamMenuProvider } from "./context/HamMenuContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,11 +36,12 @@ function App() {
             <Routes>
               <Route element={<Applayout />}>
                 <Route element={<Home />} path="/" />
-                <Route element={<Profile />} path="/profile" />
+                <Route element={<NotFound/>} path="*"/>
+                {/* <Route element={<Profile />} path="/profile" />
                 <Route element={<Categoryes />} path="/categoryes" />
                 <Route element={<Details />} path="/details/:id" />
                 <Route element={<Login />} path="/login" />
-                <Route element={<Signup />} path="/signup" />
+                <Route element={<Signup />} path="/signup" /> */}
               </Route>
             </Routes>
           </BrowserRouter>

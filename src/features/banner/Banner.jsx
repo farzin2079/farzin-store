@@ -27,37 +27,63 @@ const PicturePlace = styled.div`
   margin: auto;
 `;
 
-export default function Banner() {
+export default function Banner({ place }) {
   const { data, isLoading } = useBanner();
 
   if (isLoading) return <Spinner />;
 
-  return (
-    <Container>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
-        loop={true}
-      >
-        <SwiperPrevButton />
-        {data?.map((banner) => (
-          <SwiperSlide key={banner.id}>
-            <PicturePlace>
+  let banners;
+
+  switch (place) {
+    case "1":
+      banners = data?.filter((b) => b.place === 1);
+      return (
+        <>
+          {banners.map((banner) => (
+            <Container key={banner.id}>
               <Img
                 src={banner.image}
-                phoneSrc={banner.phoneImage}
                 alt={banner.description}
                 width="100%"
-                height="100%"
+                height="1%"
               />
-            </PicturePlace>
-          </SwiperSlide>
-        ))}
-        <SwiperNextButton />
-      </Swiper>
-    </Container>
-  );
+            </Container>
+          ))}
+        </>
+      );
+    case "2":
+      banners = data?.filter((b) => b.place === 2);
+      return (
+        <Container>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, A11y]}
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000 }}
+            loop={true}
+          >
+            <SwiperPrevButton />
+            {banners?.map((banner) => (
+              <SwiperSlide key={banner.id}>
+                <PicturePlace>
+                  <Img
+                    src={banner.image}
+                    phoneSrc={banner.phoneImage}
+                    alt={banner.description}
+                    width="100%"
+                    height="100%"
+                  />
+                </PicturePlace>
+              </SwiperSlide>
+            ))}
+            <SwiperNextButton />
+          </Swiper>
+        </Container>
+      );
+      case "3":
+        
+    default:
+      return <Img src={data.image} width="100%" />;
+  }
 }

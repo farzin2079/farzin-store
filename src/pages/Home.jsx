@@ -1,14 +1,15 @@
 import React from "react";
 
-import Container from "../ui/Container";
 import Banner from "../features/banner/Banner";
 import OnSaleSection from "../ui/OnSaleSection";
+import SuggestionSwction from "../ui/SuggestionSwction";
 
 export default function Home() {
   return (
     <>
-      <Banner />
+      <Banner place="2" />
       <OnSaleSection />
+      <SuggestionSwction />
     </>
   );
 }
