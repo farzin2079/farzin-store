@@ -20,7 +20,6 @@ export default function SuggestionSwction() {
         datas={data}
         modules={[Pagination]}
         pagination={{ clickable: true, dynamicBullets: true }}
-        loop={true}
       >
         <Card />
       </SwiperComponent>

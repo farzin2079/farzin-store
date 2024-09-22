@@ -14,7 +14,8 @@ const Book = styled.div`
   border: 1px solid var(--color-stone-400);
   position: relative;
   border-radius: 10px;
-  width: 220px;
+  width: 100%;
+  max-width: 380px;
   height: 300px;
   background-color: whitesmoke;
   -webkit-transform: preserve-3d;

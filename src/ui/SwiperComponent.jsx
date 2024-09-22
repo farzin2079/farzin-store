@@ -2,8 +2,6 @@ import React, { cloneElement } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Navigation, Pagination } from "swiper/modules";
-
 import SwiperPrevButton from "./SwiperPrevButton";
 import SwiperNextButton from "./SwiperNextButton";
 
@@ -11,6 +9,10 @@ export default function SwiperComponent({ datas, children, ...props }) {
   return (
     <Swiper
       breakpoints={{
+        0: {
+          slidesPerView: "auto",
+          centeredSlides: true,
+        },
         640: {
           slidesPerView: 2,
           spaceBetween: 20,
