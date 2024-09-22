@@ -1,4 +1,4 @@
-import React, { cloneElement } from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -6,6 +6,14 @@ import SwiperPrevButton from "./SwiperPrevButton";
 import SwiperNextButton from "./SwiperNextButton";
 
 export default function SwiperComponent({ datas, children, ...props }) {
+  const [isLastSlide, setIsLastSlide] = useState(false);
+  const [isFirstSlide, setIsFirstSlide] = useState(true);
+
+  const handleSlideChange = (swiper) => {
+    setIsLastSlide(swiper.isEnd);
+    setIsFirstSlide(swiper.isBeginning);
+  };
+
   return (
     <Swiper
       breakpoints={{
@@ -26,15 +34,16 @@ export default function SwiperComponent({ datas, children, ...props }) {
           spaceBetween: 50,
         },
       }}
+      onSlideChange={handleSlideChange}
       {...props}
     >
-      <SwiperPrevButton />
+      <SwiperPrevButton isFirstSlide={isFirstSlide} />
       {datas?.map((data) => (
         <SwiperSlide key={data.id}>
           {cloneElement(children, { data: data })}
         </SwiperSlide>
       ))}
-      <SwiperNextButton />
+      <SwiperNextButton isLastSlide={isLastSlide} />
     </Swiper>
   );
 }

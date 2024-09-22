@@ -27,6 +27,28 @@ const PicturePlace = styled.div`
   margin: auto;
 `;
 
+const Section = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+
+  & img {
+    border-radius: 15px;
+    margin: auto;
+  }
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+`;
+
 export default function Banner({ place }) {
   const { data, isLoading } = useBanner();
 
@@ -81,8 +103,17 @@ export default function Banner({ place }) {
           </Swiper>
         </Container>
       );
-      case "3":
-        
+    case "3":
+      banners = data?.filter((b) => b.place === 3);
+      return (
+        <Container>
+          <Section>
+            {banners.map((banner) => (
+              <Img src={banner.image} key={banner.id} />
+            ))}
+          </Section>
+        </Container>
+      );
     default:
       return <Img src={data.image} width="100%" />;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiChevronRight } from "react-icons/hi2";
 import styled from "styled-components";
 import { useSwiper } from "swiper/react";
@@ -18,10 +18,13 @@ const Button = styled.button`
   font-size: 1rem;
   border-radius: 50%;
   box-shadow: 0 0 10px 1px var(--color-slate-400);
-`
+`;
 
-export default function SwiperNextButton() {
+export default function SwiperNextButton({ isLastSlide }) {
   const swiper = useSwiper();
+
+  if (isLastSlide) return;
+
   return (
     <Button onClick={() => swiper.slideNext()}>
       <HiChevronRight />

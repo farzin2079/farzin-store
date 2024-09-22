@@ -20,8 +20,11 @@ const Button = styled.button`
   box-shadow: 0 0 10px 1px var(--color-slate-400);
 `;
 
-export default function SwiperPrevButton() {
+export default function SwiperPrevButton({ isFirstSlide }) {
   const swiper = useSwiper();
+
+  if (isFirstSlide) return;
+
   return (
     <Button onClick={() => swiper.slidePrev()}>
       <HiChevronLeft />
