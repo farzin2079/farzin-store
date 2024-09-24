@@ -76,6 +76,8 @@ const DetailsWrapper = styled.div`
 
 const Title = styled.h1`
   font-size: calc(0.8rem + 0.3vw);
+  height: 50px;
+  overflow: hidden;
 `;
 
 const Price = styled.div`
@@ -84,6 +86,8 @@ const Price = styled.div`
   color: var(--light);
   display: flex;
   flex-direction: column;
+  height: 100px;
+  overflow: hidden;
 `;
 
 const ReqularPrice = styled.span`
@@ -108,13 +112,17 @@ const Button = styled(Link)`
   text-align: end;
   width: 100%;
   padding: 0 16px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 8px;
+  
 `;
 
-const StarsWrapper = styled.div`
-`;
+const StarsWrapper = styled.div``;
 const Comment = styled.div`
-font-size: 1rem;
-`
+  font-size: 1rem;
+`;
 export default function Card({ data }) {
   return (
     <Book>
@@ -123,9 +131,7 @@ export default function Card({ data }) {
         <StarsWrapper>
           <StarRating size="15" />
         </StarsWrapper>
-        <Comment>
-            12 comments
-        </Comment>
+        <Comment>12 comments</Comment>
         <Price>
           {data.discountPrecent ? (
             <>
@@ -146,7 +152,7 @@ export default function Card({ data }) {
         </Price>
       </DetailsWrapper>
       <Button to={`/product/${data.id}`}>
-        see more <HiChevronDoubleRight />
+        More details<HiChevronDoubleRight />
       </Button>
       <Cover $bg={data.mainImage} id="cover" />
     </Book>

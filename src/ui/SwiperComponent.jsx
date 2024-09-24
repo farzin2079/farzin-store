@@ -14,6 +14,7 @@ export default function SwiperComponent({ datas, children, ...props }) {
     setIsFirstSlide(swiper.isBeginning);
   };
 
+
   return (
     <Swiper
       breakpoints={{

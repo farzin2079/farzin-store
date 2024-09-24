@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Container from "../ui/Container";
 import { HiChevronDoubleLeft } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div``;
 
@@ -104,6 +105,8 @@ const Button = styled.button`
 `;
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Wrapper>
@@ -111,7 +114,7 @@ export default function NotFound() {
         <Text>
           Most pages are under <b>construction</b>
         </Text>
-        <Button>
+        <Button onClick={() => navigate(-1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="arr-1"
