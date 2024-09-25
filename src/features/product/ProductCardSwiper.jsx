@@ -7,13 +7,10 @@ import { EffectCards } from "swiper/modules";
 import "swiper/css";
 
 import { useProducts } from "./useProduct";
-import Spinner from "../../ui/Spinner";
 import ProductCardOnSale from "./ProductCardOnSale";
 
 export default function ProductCardSwiper() {
   const { data, isLoading } = useProducts();
-
-  if (isLoading) return <Spinner />;
 
   return (
     <Swiper

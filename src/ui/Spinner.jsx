@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
@@ -6,17 +7,68 @@ const rotate = keyframes`
   }
 `;
 
-const Spinner = styled.div`
-  margin: 4.8rem auto;
+const SpinnerStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  width: 6.4rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(farthest-side, var(--color-brand-600) 94%, #0000)
-      top/10px 10px no-repeat,
-    conic-gradient(#0000 30%, var(--color-brand-600));
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
-  animation: ${rotate} 1.5s infinite linear;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-slate-100);
+  & div:nth-child(1) {
+    animation-delay: 0.01s;
+  }
+
+  & div:nth-child(2) {
+    animation-delay: 0.09s;
+  }
+
+  & div:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+
+  & div:nth-child(4) {
+    animation-delay: 0.29s;
+  }
 `;
 
-export default Spinner;
+const Bar = styled.div`
+  width: 7px;
+  height: 18px;
+  margin: 0 9px;
+  border-radius: 10px;
+  animation: loading 1s ease-in-out infinite;
+  background-color: var(--color-brand-500);
+
+  @keyframes loading {
+    0% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(1, 2.5);
+    }
+
+    40% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(1);
+    }
+  }
+`;
+
+export default function Spinner() {
+  return (
+    <SpinnerStyle>
+      <Bar />
+      <Bar />
+      <Bar />
+      <Bar />
+    </SpinnerStyle>
+  );
+}
